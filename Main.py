@@ -50,17 +50,17 @@ class Main(QDialog):
             sum_even_ki = 0
 
             while i < self.tableWidget.rowCount():
-
                 try:
                     item = self.tableWidget.item(i, 0).text()
-                    if (i + 1) % 2 == 0:
-                        sum_even_ki += int(item)
-                    else:
+                    if (i + 1) % 2 != 0:
                         multiply_ki *= int(item)
-                    sum_ki += int(item) ** 2
+                    else:
+                        sum_even_ki += int(item)
+
                     if int(item) >= 0:
                         answer = multiply_ki - sum_even_ki
                     else:
+                        sum_ki += int(item) ** 2
                         answer = sum_ki ** (1 / 3)
 
                     self.tableWidget.setItem(i, j,
